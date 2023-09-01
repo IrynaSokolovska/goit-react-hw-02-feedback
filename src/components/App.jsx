@@ -25,15 +25,14 @@ export class App extends Component {
   };
     
   countPositiveFeedbackPercentage = () => {
-  
+    const { good } = this.state;
     const total = this.countTotalFeedback();
-    if (!total) {
-      return Math.abs((this.state.good/total)*100).toFixed(2);
-    }
+    return Math.round((good / total) * 100) || 0;
    };
 
 
-  render() {
+  render() { 
+
     return (
       <Container>        
         <Section title="Please leave feedback">
@@ -51,3 +50,10 @@ export class App extends Component {
   }
 };
 
+// countPositiveFeedbackPercentage = () => {
+  
+//     const total = this.countTotalFeedback();
+//     if (!total) {
+//       return Math.abs((this.state.good/total)*100).toFixed(2);
+//     }
+//    };
